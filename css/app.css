@@ -1,0 +1,275 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.nav {
+	height: 60px;
+	line-height: 60px;
+	background: #06c1ae;
+	color: #fff;
+}
+.back {
+	float: left;
+	position: relative;
+	top: 10px;
+}
+.back span {
+	position: absolute;
+	border: 20px solid transparent;
+	border-right: 20px solid #fff;
+}
+.back .green {
+	border-right: 20px solid #06c1ae;
+	left: -15px;
+    top: -20px;
+}
+.login {
+	float: right;
+	margin-right: 10px;
+}
+.nav h1 {
+	text-align: center;
+    text-indent: 20px;
+}
+.search input {
+	width: 100%;
+	padding: 15px 10px;
+	color: gray;
+	box-sizing: border-box;
+}
+
+
+.home {
+	background: #efefef;
+}
+/* type按钮样式 */
+.home-type {
+	background: #fff;
+	padding: 10px 0;
+}
+.home-type li {
+	width: 20%;
+	float: left;
+	text-align: center;
+	padding-bottom: 10px;
+}
+.home-type li img {
+	width: 60%;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 6px;
+}
+.home-type li a {
+	text-decoration: none;
+}
+.home-type li span {
+	color: gray;
+	font-size: 12px;
+}
+/* 广告部分 */
+.home-ad {
+	margin: 10px 6px;
+}
+.home-ad li {
+	float: left;
+	width: 33.33333333%;
+	border-right: 1px solid #ccc;
+	box-sizing: border-box;
+	background: #fff;
+	text-align: center;
+}
+.home-ad li:last-child {
+	border-right: none;
+}
+.home-ad li h3 {
+	color: red;
+	font-size: 16px;
+	margin: 10px 0;
+}
+.home-ad li p {
+	color: gray;
+	margin-bottom: 20px;
+}
+.home-ad li img {
+	width: 50%;
+	margin-bottom: 5px;
+}
+.home-ad li a {
+	text-decoration: none;
+}
+
+/* 商品列表 */
+.list-container {
+	padding: 10px;
+	background: #fff;
+}
+.list-container li {
+	height: 90px;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0;
+}
+.list-container li img {
+	width: 140px;
+	float: left;
+}
+.list-container li .description {
+	margin-left: 145px;
+}
+.list-container li a {
+	text-decoration: none;
+}
+.list-container li h2 {
+	font-size: 18px;
+	color: gray;
+	height: 60px;
+	padding-top: 4px;
+}
+.list-container li p {
+	color: gray;
+	font-size: 12px;
+}
+.list-container li .price {
+	color: #06c1ae;
+	font-size: 16px;
+}
+.list-container li .sales {
+	float: right;
+	margin-top: 4px;
+}
+
+/* 列表页分类按钮 */
+.list-type {
+	height: 40px;
+	line-height: 40px;
+}
+.list-type li {
+	text-align: center;
+	width: 25%;
+	border-right: 1px solid #ccc;
+	box-sizing: border-box;
+	float: left;
+	border-bottom: 1px solid #ccc;
+}
+.list-type li:last-child {
+	border-right: none;
+}
+.list-type li .arrow {
+	border: 6px solid transparent;
+	border-top: 6px solid #999;
+	position: relative;
+	top: 10px;
+}
+.load-more {
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+	color: #06c1ae;
+	padding-bottom: 5px;
+}
+.load-more .arrow {
+	border: 6px solid transparent;
+	border-top: 6px solid #06c1ae;
+	font-size: 0;
+	position: relative;
+	top: -2px;
+}
+.load-more .arrow.green {
+	position: absolute;
+	border-top: 6px solid #fff;
+	top: -8px;
+    left: -6px;
+}
+
+/* 产品页的样式 */
+.product {
+	background: #efefef;
+}
+.product .title {
+	position: relative;
+	color: #fff;
+}
+.product .title h1 {
+	position: absolute;
+	left: 10px;
+	bottom: 40px;
+}
+.product .title p {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+}
+div.price {
+	background: #fff;
+	height: 80px;
+	line-height: 80px;
+	padding-left: 10px;
+	border-bottom: 1px solid #ccc;
+}
+div.price .green {
+	color: #06c1ae;
+}
+div.price .big {
+	font-size: 40px;
+}
+div.price .btn {
+	background: orange;
+	padding: 0 20px;
+	text-align: center;
+	color: #fff;
+	float: right;
+	height: 40px;
+	line-height: 40px;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+.product .title img{
+    width:100%;
+}
+.product .sales {
+	background: #fff;
+	padding: 10px 0;
+}
+.product .sales li {
+	width: 50%;
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	text-indent: 10px;
+}
+.product .sales .info {
+	color: yellowgreen;
+}
+.product .part {
+	background: #fff;
+	margin-top: 10px;
+	padding: 10px;
+}
+.product .part .sub-title {
+	height: 50px;
+	line-height: 50px;
+	font-size: 30px;
+	border-bottom: 1px solid #ccc;
+}
+.product .part .container {
+	line-height: 30px;
+	padding: 10px 0;
+}
+.product .part .footer {
+	color: skyblue;
+	height: 40px;
+	line-height: 40px;
+	border-top: 1px solid #ccc;
+}
+.product .part .list h4 {
+	color: orange;
+	font-size: 26px;
+	line-height: 50px;
+}

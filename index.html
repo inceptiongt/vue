@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, user-scalable=no">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+<body>
+
+<div id="app">
+	<div class="header">
+		<div class="nav">
+			<div class="back" v-on:click="goBack">
+				<span class="arrow"><span class="arrow green"></span></span>
+			</div>
+			<div class="login">登录</div>
+			<h1>团购网</h1>
+		</div>
+		<div class="search" v-show="showSearch">
+			<input type="text" v-model="search" v-on:keyup.enter="goSearch" placeholder="请输入搜索关键字">
+		</div>
+	</div>
+	<component v-bind:csearch="dealSearch" v-bind:is="view"></component>
+</div>
+
+<script type="text/template" id="tpl_home">
+	<section id="home" class="home">
+		<ul class="home-type clearfix">
+			<li v-for="item in types">
+				<a href="#/list/type/{{item.id}}">
+					<img v-bind:src="'img/icon/' + item.url" alt="">
+					<span>{{item.title}}</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="home-ad clearfix">
+			<li v-for="item in ad">
+				<a href="#/product/{{item.id}}">
+					<h3>{{item.title}}</h3>
+					<p>{{item.description}}</p>
+					<img v-bind:src="'img/product/' + item.url" alt="">
+				</a>
+			</li>
+		</ul>
+		<ul class="list-container">
+			<li v-for="item in list">
+				<a href="#/product/{{item.id}}">
+					<img v-bind:src="'img/list/' + item.img" alt="">
+					<div class="description">
+						<h2>{{item.title}}</h2>
+						<p>
+							<span class="price">{{item.price | price}}</span>
+							<span class="orign-price">{{item.orignPrice | orignPrice}}</span>
+							<span class="sales">{{item.sales | sales}}</span>
+						</p>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</section>
+</script>
+
+<script type="text/template" id="tpl_list">
+	<section class="list" id="list">
+		<ul class="list-type clearfix">
+			<li v-for="item in types" v-on:click="sortBy(item.key)">
+				<span>{{item.value}}</span>
+				<span class="arrow"></span>
+			</li>
+		</ul>
+		<ul class="list-container">
+			<li v-for="item in list | filterBy csearch">
+				<a href="#/product/{{item.id}}">
+					<img v-bind:src="'img/list/' + item.img" alt="">
+					<div class="description">
+						<h2>{{item.title}}</h2>
+						<p>
+							<span class="price">{{item.price | price}}</span>
+							<span class="orign-price">{{item.orignPrice | orignPrice}}</span>
+							<span class="sales">{{item.sales | sales}}</span>
+						</p>
+					</div>
+				</a>
+			</li>
+		</ul>
+		<div class="load-more" v-on:click="loadMore" v-show="other.length">
+			<span>查看其他 {{other.length}} 条团购</span>
+			<span class="arrow"><span class="arrow green"></span></span>
+		</div>
+	</section>
+</script>
+
+<script type="text/template" id="tpl_product">
+	<section class="product" id="product">
+		<div class="title">
+			<img v-bind:src="'img/item/' + data.src" alt="">
+			<h1>{{data.title}}</h1>
+			<p>{{data.description}}</p>
+		</div>
+		<div class="price">
+			<span class="green"><span class="big">{{data.price}}</span>元</span>
+			<span>{{data.orignPrice | orignPrice}}</span>
+			<span class="btn">立即购买</span>
+		</div>
+		<ul class="sales clearfix">
+			<li class="info">支持自动退货</li>
+			<li class="info">支持随时退货</li>
+			<li>{{data.sales | sales}}</li>
+		</ul>
+		<div class="part store">
+			<h3 class="sub-title">店家信息</h3>
+			<div class="container">
+				<p>{{data.storeName}}</p>
+				<p>{{data.storeAdress}}</p>
+			</div>
+			<div class="footer">查看 {{data.storeNum}} 家试用分店</div>
+		</div>
+		<div class="part buy">
+			<h3 class="sub-title">购买须知</h3>
+			<div class="container">
+				<ul class="list">
+					<li>
+						<h4>有效期</h4>
+						<div>
+							<p>{{data.validateTime}}</p>
+						</div>
+					</li>
+					<li>
+						<h4>使用时间</h4>
+						<div>
+							<p>{{data.useTime}}</p>
+						</div>
+					</li>
+					<li>
+						<h4>使用规则</h4>
+						<div>
+							<ul>
+								<li v-for="item in data.rules">{{item}}</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+</script>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+
+</body>
+</html>
